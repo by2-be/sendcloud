@@ -1,0 +1,66 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://panel.sendcloud.nl/api/v2/parcels
+    body:
+      encoding: UTF-8
+      string: '{"parcels":[{"name":"Rob van den Heuvel","address":"Torenallee","house_number":25,"city":"Eindhoven","postal_code":"5617BC","country":"NL","shipment":{"id":117},"requestShipment":false},{"name":"Rob
+        van den Heuvel","address":"Torenallee","house_number":25,"city":"Eindhoven","postal_code":"5617BC","country":"NL","shipment":{"id":117},"requestShipment":false}]}'
+    headers:
+      Content-Type:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Authorization:
+      - Basic YmM1ZWIyZDA1NDVkNGM2ZGExZjE0MDZmZmZmOTM0M2M6NzlkZjAxNTM1MjhiNGJlNGFmNjFhOTBhOTU4M2ExMmQ=
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Wed, 02 Sep 2020 10:01:28 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Server:
+      - nginx
+      Vary:
+      - Accept-Encoding
+      - Origin, Cookie
+      X-Frame-Options:
+      - DENY
+      Allow:
+      - GET, POST, PUT, HEAD, OPTIONS
+      X-Sendcloud-Client-Latest-Version-Windows:
+      - 1.0.4
+      X-Sendcloud-Client-Latest-Version-Macos:
+      - 1.0.5
+      X-Content-Type-Options:
+      - nosniff
+      Strict-Transport-Security:
+      - max-age=15552000; includeSubDomains; preload
+      X-Sendcloud-Client-Latest-Version-Linux:
+      - 1.0.2
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Sendcloud-Panel-Id:
+      - 0cefa613878f6baf7762c48c2438bc02ed61cb21
+    body:
+      encoding: ASCII-8BIT
+      string: '{"parcels":[{"id":57282570,"address":"Torenallee 25","address_2":"","address_divided":{"street":"Torenallee","house_number":"25"},"city":"Eindhoven","company_name":"","country":{"iso_2":"NL","iso_3":"NLD","name":"Netherlands"},"data":{},"date_created":"02-09-2020
+        10:01:27","email":"","name":"Rob van den Heuvel","postal_code":"5617BC","reference":"0","shipment":{"id":117,"name":"DHLForYou
+        Drop Off"},"status":{"id":999,"message":"No label"},"to_service_point":null,"telephone":"","tracking_number":"","weight":"1.000","label":{},"customs_declaration":{},"order_number":"","insured_value":0,"total_insured_value":0,"to_state":null,"customs_invoice_nr":"","customs_shipment_type":null,"parcel_items":[],"documents":[],"type":null,"shipment_uuid":"f602673c-5228-44c7-a07b-ce204df46db6","shipping_method":117,"external_order_id":"57282570","external_shipment_id":"","external_reference":null,"is_return":false,"note":"","to_post_number":"","total_order_cost":null,"currency":null,"carrier":{"code":"dhl"}},{"id":57282571,"address":"Torenallee
+        25","address_2":"","address_divided":{"street":"Torenallee","house_number":"25"},"city":"Eindhoven","company_name":"","country":{"iso_2":"NL","iso_3":"NLD","name":"Netherlands"},"data":{},"date_created":"02-09-2020
+        10:01:28","email":"","name":"Rob van den Heuvel","postal_code":"5617BC","reference":"0","shipment":{"id":117,"name":"DHLForYou
+        Drop Off"},"status":{"id":999,"message":"No label"},"to_service_point":null,"telephone":"","tracking_number":"","weight":"1.000","label":{},"customs_declaration":{},"order_number":"","insured_value":0,"total_insured_value":0,"to_state":null,"customs_invoice_nr":"","customs_shipment_type":null,"parcel_items":[],"documents":[],"type":null,"shipment_uuid":"7d719c4d-176c-4b05-a0e8-cbe4ea14cea7","shipping_method":117,"external_order_id":"57282571","external_shipment_id":"","external_reference":null,"is_return":false,"note":"","to_post_number":"","total_order_cost":null,"currency":null,"carrier":{"code":"dhl"}}]}'
+  recorded_at: Wed, 02 Sep 2020 10:01:28 GMT
+recorded_with: VCR 6.0.0
