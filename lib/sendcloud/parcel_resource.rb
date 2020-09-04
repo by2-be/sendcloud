@@ -33,9 +33,18 @@ module Sendcloud
         shipment: shipment,
         requestShipment: false,
       }.merge(method_params)
+
+      parcels = []
+      external_reference = parcel[:external_reference]
+      qty.times do |i|
+        cloned_parcel = parcel.clone
+        cloned_parcel[:external_reference] = external_reference + "-#{i}" if external_reference
+        parcels << cloned_parcel
+      end
+
       response = self.class.post("/parcels",
                                  body: {
-                                   parcels: Array.new(qty, parcel),
+                                   parcels: parcels,
                                  }.to_json,
                                  basic_auth: auth,
                                  headers: { "Content-Type" => "application/json" })
