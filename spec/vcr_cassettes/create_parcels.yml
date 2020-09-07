@@ -5,8 +5,8 @@ http_interactions:
     uri: https://panel.sendcloud.nl/api/v2/parcels
     body:
       encoding: UTF-8
-      string: '{"parcels":[{"name":"Rob van den Heuvel","address":"Torenallee","house_number":25,"city":"Eindhoven","postal_code":"5617BC","country":"NL","shipment":{"id":117},"requestShipment":false},{"name":"Rob
-        van den Heuvel","address":"Torenallee","house_number":25,"city":"Eindhoven","postal_code":"5617BC","country":"NL","shipment":{"id":117},"requestShipment":false}]}'
+      string: '{"parcels":[{"name":"Rob van den Heuvel","address":"Torenallee","house_number":25,"city":"Eindhoven","postal_code":"5617BC","country":"NL","shipment":{"id":117}},{"name":"Rob
+        van den Heuvel","address":"Torenallee","house_number":25,"city":"Eindhoven","postal_code":"5617BC","country":"NL","shipment":{"id":117}}]}'
     headers:
       Content-Type:
       - application/json
@@ -24,7 +24,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Wed, 02 Sep 2020 10:01:28 GMT
+      - Mon, 07 Sep 2020 14:04:29 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -36,31 +36,31 @@ http_interactions:
       Vary:
       - Accept-Encoding
       - Origin, Cookie
-      X-Frame-Options:
-      - DENY
-      Allow:
-      - GET, POST, PUT, HEAD, OPTIONS
-      X-Sendcloud-Client-Latest-Version-Windows:
-      - 1.0.4
-      X-Sendcloud-Client-Latest-Version-Macos:
-      - 1.0.5
       X-Content-Type-Options:
       - nosniff
       Strict-Transport-Security:
       - max-age=15552000; includeSubDomains; preload
+      X-Frame-Options:
+      - DENY
       X-Sendcloud-Client-Latest-Version-Linux:
       - 1.0.2
       X-Xss-Protection:
       - 1; mode=block
+      X-Sendcloud-Client-Latest-Version-Windows:
+      - 1.0.4
+      X-Sendcloud-Client-Latest-Version-Macos:
+      - 1.0.5
       X-Sendcloud-Panel-Id:
-      - 0cefa613878f6baf7762c48c2438bc02ed61cb21
+      - 37780515c86054153166efe0a5c7ebfd8778b458
+      Allow:
+      - GET, POST, PUT, HEAD, OPTIONS
     body:
       encoding: ASCII-8BIT
-      string: '{"parcels":[{"id":57282570,"address":"Torenallee 25","address_2":"","address_divided":{"street":"Torenallee","house_number":"25"},"city":"Eindhoven","company_name":"","country":{"iso_2":"NL","iso_3":"NLD","name":"Netherlands"},"data":{},"date_created":"02-09-2020
-        10:01:27","email":"","name":"Rob van den Heuvel","postal_code":"5617BC","reference":"0","shipment":{"id":117,"name":"DHLForYou
-        Drop Off"},"status":{"id":999,"message":"No label"},"to_service_point":null,"telephone":"","tracking_number":"","weight":"1.000","label":{},"customs_declaration":{},"order_number":"","insured_value":0,"total_insured_value":0,"to_state":null,"customs_invoice_nr":"","customs_shipment_type":null,"parcel_items":[],"documents":[],"type":null,"shipment_uuid":"f602673c-5228-44c7-a07b-ce204df46db6","shipping_method":117,"external_order_id":"57282570","external_shipment_id":"","external_reference":null,"is_return":false,"note":"","to_post_number":"","total_order_cost":null,"currency":null,"carrier":{"code":"dhl"}},{"id":57282571,"address":"Torenallee
-        25","address_2":"","address_divided":{"street":"Torenallee","house_number":"25"},"city":"Eindhoven","company_name":"","country":{"iso_2":"NL","iso_3":"NLD","name":"Netherlands"},"data":{},"date_created":"02-09-2020
-        10:01:28","email":"","name":"Rob van den Heuvel","postal_code":"5617BC","reference":"0","shipment":{"id":117,"name":"DHLForYou
-        Drop Off"},"status":{"id":999,"message":"No label"},"to_service_point":null,"telephone":"","tracking_number":"","weight":"1.000","label":{},"customs_declaration":{},"order_number":"","insured_value":0,"total_insured_value":0,"to_state":null,"customs_invoice_nr":"","customs_shipment_type":null,"parcel_items":[],"documents":[],"type":null,"shipment_uuid":"7d719c4d-176c-4b05-a0e8-cbe4ea14cea7","shipping_method":117,"external_order_id":"57282571","external_shipment_id":"","external_reference":null,"is_return":false,"note":"","to_post_number":"","total_order_cost":null,"currency":null,"carrier":{"code":"dhl"}}]}'
-  recorded_at: Wed, 02 Sep 2020 10:01:28 GMT
+      string: '{"parcels":[{"id":57890817,"address":"Torenallee 25","address_2":"","address_divided":{"street":"Torenallee","house_number":"25"},"city":"Eindhoven","company_name":"","country":{"iso_2":"NL","iso_3":"NLD","name":"Netherlands"},"data":{},"date_created":"07-09-2020
+        14:04:29","email":"","name":"Rob van den Heuvel","postal_code":"5617BC","reference":"0","shipment":{"id":117,"name":"DHLForYou
+        Drop Off"},"status":{"id":999,"message":"No label"},"to_service_point":null,"telephone":"","tracking_number":"","weight":"1.000","label":{},"customs_declaration":{},"order_number":"","insured_value":0,"total_insured_value":0,"to_state":null,"customs_invoice_nr":"","customs_shipment_type":null,"parcel_items":[],"documents":[],"type":null,"shipment_uuid":"18e0ba57-8060-4427-85df-2e60c3416f94","shipping_method":117,"external_order_id":"57890817","external_shipment_id":"","external_reference":null,"is_return":false,"note":"","to_post_number":"","total_order_value":null,"total_order_value_currency":null,"carrier":{"code":"dhl"}},{"id":57890818,"address":"Torenallee
+        25","address_2":"","address_divided":{"street":"Torenallee","house_number":"25"},"city":"Eindhoven","company_name":"","country":{"iso_2":"NL","iso_3":"NLD","name":"Netherlands"},"data":{},"date_created":"07-09-2020
+        14:04:29","email":"","name":"Rob van den Heuvel","postal_code":"5617BC","reference":"0","shipment":{"id":117,"name":"DHLForYou
+        Drop Off"},"status":{"id":999,"message":"No label"},"to_service_point":null,"telephone":"","tracking_number":"","weight":"1.000","label":{},"customs_declaration":{},"order_number":"","insured_value":0,"total_insured_value":0,"to_state":null,"customs_invoice_nr":"","customs_shipment_type":null,"parcel_items":[],"documents":[],"type":null,"shipment_uuid":"0e19d7e5-fb21-4fc8-bcb5-d0873ae25f75","shipping_method":117,"external_order_id":"57890818","external_shipment_id":"","external_reference":null,"is_return":false,"note":"","to_post_number":"","total_order_value":null,"total_order_value_currency":null,"carrier":{"code":"dhl"}}]}'
+  recorded_at: Mon, 07 Sep 2020 14:04:29 GMT
 recorded_with: VCR 6.0.0

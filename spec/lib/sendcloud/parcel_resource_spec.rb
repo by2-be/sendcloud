@@ -33,7 +33,7 @@ describe Sendcloud::ParcelResource do
     it "with valid params" do
       pr = Sendcloud::ParcelResource.new("key", "secret")
       VCR.use_cassette("create_parcels") do
-        parcels = pr.create_parcels(new_parcel["name"], new_parcel["shipment_address"], { id: 117 }, 2)
+        parcels = pr.create_parcels([parcel_hash, parcel_hash])
         expect(parcels).not_to be_empty
         expect(parcels.length).to be 2
         expect(parcels.first).to include("name" => "Rob van den Heuvel")
@@ -125,5 +125,17 @@ describe Sendcloud::ParcelResource do
                                                               "No Parcel matches the given query.")
       end
     end
+  end
+
+  def parcel_hash
+    {
+      name: new_parcel["name"],
+      address: new_parcel["shipment_address"].address,
+      house_number: new_parcel["shipment_address"].number,
+      city: new_parcel["shipment_address"].city,
+      postal_code: new_parcel["shipment_address"].postal_code,
+      country: new_parcel["shipment_address"].country,
+      shipment: { id: 117 },
+    }
   end
 end

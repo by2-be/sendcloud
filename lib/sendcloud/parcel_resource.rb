@@ -22,26 +22,7 @@ module Sendcloud
       response["parcel"]
     end
 
-    def create_parcels(name, shipment_address, shipment = { id: 1, options: [] }, qty = 1, method_params = {})
-      parcel = {
-        name: name,
-        address: shipment_address.address,
-        house_number: shipment_address.number,
-        city: shipment_address.city,
-        postal_code: shipment_address.postal_code,
-        country: shipment_address.country,
-        shipment: shipment,
-        requestShipment: false,
-      }.merge(method_params)
-
-      parcels = []
-      external_reference = parcel[:external_reference]
-      qty.times do |i|
-        cloned_parcel = parcel.clone
-        cloned_parcel[:external_reference] = external_reference + "-#{i}" if external_reference
-        parcels << cloned_parcel
-      end
-
+    def create_parcels(parcels)
       response = self.class.post("/parcels",
                                  body: {
                                    parcels: parcels,
@@ -70,6 +51,12 @@ module Sendcloud
       response = self.class.get("/parcels/#{parcel_id}", basic_auth: auth)
       handle_response_error(response)
       response["parcel"]
+    end
+
+    def show_parcels(parcel_ids)
+      response = self.class.get("/parcels?ids=#{parcel_ids.join(",")}", basic_auth: auth)
+      handle_response_error(response)
+      response["parcels"]
     end
 
     def get_label_parcel(parcel_id)
