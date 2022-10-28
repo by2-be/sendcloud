@@ -1,10 +1,10 @@
-require 'httparty'
+require "httparty"
 
 module Sendcloud
   class Base
     include HTTParty
     format :json
-    base_uri 'https://panel.sendcloud.nl/api/v2/'
+    base_uri "https://panel.sendcloud.sc/api/v2/"
 
     attr_accessor :api_key, :api_secret
 
@@ -23,8 +23,7 @@ module Sendcloud
     #
     # @return [Hash] the basic auth hash based on the api_key and api_secret
     def auth
-      { username: api_key, password: api_secret}
+      { username: api_key, password: api_secret }
     end
-
   end
 end
