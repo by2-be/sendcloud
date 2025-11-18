@@ -26,9 +26,11 @@ module Sendcloud
   autoload :ServicePoint, "sendcloud/objects/service_point"
 
   # V3
-  autoload :ShipmentResource, "sendcloud/v3/resources/shipment"
-  autoload :ContractResource, "sendcloud/v3/resources/contract"
+  module V3
+    autoload :ShipmentResource, "sendcloud/v3/resources/shipment"
+    autoload :ContractResource, "sendcloud/v3/resources/contract"
 
-  autoload :Shipment, "sendcloud/v3/objects/shipment"
-  autoload :Contract, "sendcloud/v3/objects/contract"
+    autoload :Shipment, "sendcloud/v3/objects/shipment"
+    autoload :Contract, "sendcloud/v3/objects/contract"
+  end
 end
