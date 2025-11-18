@@ -2,11 +2,12 @@ module Sendcloud
   class Client
     BASE_DOMAIN = "https://panel.sendcloud.sc"
 
-    attr_reader :api_key, :api_secret, :adapter
+    attr_reader :api_key, :api_secret, :uri, :adapter
 
-    def initialize(api_key:, api_secret:, adapter: Faraday.default_adapter, stubs: nil)
+    def initialize(api_key:, api_secret:, uri: BASE_DOMAIN, adapter: Faraday.default_adapter, stubs: nil)
       @api_key = api_key
       @api_secret = api_secret
+      @uri = uri
       @adapter = adapter
 
       # Test stubs for requests
@@ -40,8 +41,8 @@ module Sendcloud
 
     def connection(version = :v2)
       case version.to_sym
-      when :v2 then (@connection_v2 ||= build_connection("#{BASE_DOMAIN}/api/v2"))
-      when :v3 then (@connection_v3 ||= build_connection("#{BASE_DOMAIN}/api/v3"))
+      when :v2 then (@connection_v2 ||= build_connection("#{BASE_DOMAIN}/api/v2")) # V2 does not allow Mock server.
+      when :v3 then (@connection_v3 ||= build_connection("#{@uri}/api/v3"))
       else
         raise ArgumentError, "Unsupported version: #{version.inspect}"
       end

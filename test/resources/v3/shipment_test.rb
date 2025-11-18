@@ -1,6 +1,25 @@
 require "test_helper"
 
 class ShipmentResourceTest < Minitest::Test
+
+  def test_shippings
+    payload = {}
+
+    stub = stub_request(
+      "shipments",
+      method: :get,
+      version: :v3,
+      body: payload,
+      response: stub_response(fixture: "shipments/shipments", status: 201)
+    )
+
+    client = Sendcloud::Client.new(api_key: "key", api_secret: "secret", adapter: :test, stubs: stub)
+    shipments = client.shipment.shipments
+
+    assert_equal Sendcloud::Collection, shipments.class
+    assert_equal Sendcloud::Shipment, shipments.data.first.class
+  end
+
   def test_announce
     payload = {
       "label_details": {
@@ -127,5 +146,24 @@ class ShipmentResourceTest < Minitest::Test
 
     label_notes = res.dig("data", "parcels", 0, "label_notes")
     assert_equal ["I live at the blue door", "The doorbell isn’t working"], label_notes
+  end
+
+  def test_cancel
+    shipment_id = 3
+    stub = stub_request(
+      "shipments/3/cancel",
+      method: :post,
+      version: :v3,
+      body: {},
+      response: stub_response(fixture: "shipments/3/cancel", status: 201)
+    )
+
+    client = Sendcloud::Client.new(api_key: "key", api_secret: "secret", adapter: :test, stubs: stub)
+    res = client.shipment.cancel(shipment_id: shipment_id)
+
+    canceled_response = res.dig("data")
+
+    assert_equal "cancelled", canceled_response.dig("status")
+    assert_equal "Shipment has been cancelled", canceled_response.dig("message")
   end
 end
