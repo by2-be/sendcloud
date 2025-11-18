@@ -27,7 +27,7 @@ module Sendcloud
     end
 
     def shipment
-      ShipmentResource.new(self, version: :v3)
+      V3::ShipmentResource.new(self, version: :v3)
     end
 
     def label
