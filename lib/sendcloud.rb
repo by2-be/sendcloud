@@ -11,6 +11,7 @@ module Sendcloud
   autoload :Resource, "sendcloud/resource"
   autoload :Collection, "sendcloud/collection"
 
+  # V2
   autoload :ParcelResource, "sendcloud/resources/parcel"
   autoload :ParcelStatusResource, "sendcloud/resources/parcel_status"
   autoload :ShippingMethodResource, "sendcloud/resources/shipping_method"
@@ -23,5 +24,11 @@ module Sendcloud
   autoload :ShippingMethod, "sendcloud/objects/shipping_method"
   autoload :Label, "sendcloud/objects/label"
   autoload :ServicePoint, "sendcloud/objects/service_point"
-  autoload :Shipment, "sendcloud/objects/shipment"
+
+  # V3
+  autoload :ShipmentResource, "sendcloud/v3/resources/shipment"
+  autoload :ContractResource, "sendcloud/v3/resources/contract"
+
+  autoload :Shipment, "sendcloud/v3/objects/shipment"
+  autoload :Contract, "sendcloud/v3/objects/contract"
 end

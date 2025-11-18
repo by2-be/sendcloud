@@ -1,0 +1,102 @@
+{
+  "data": [
+    {
+      "id": "8063218c-670a-483d-ae0f-62245393e9a5",
+      "ship_with": {
+        "type": "shipping_option_code",
+        "properties": {
+          "shipping_option_code": "gls_eu:businessparcel/flexdelivery",
+          "contract_id": 133379
+        }
+      },
+      "from_address": {
+        "name": "Lichtvis",
+        "company_name": "",
+        "address_line_1": "Kolenkaai",
+        "house_number": "68",
+        "address_line_2": "",
+        "postal_code": "8000",
+        "city": "Brugge",
+        "po_box": null,
+        "state_province_code": null,
+        "country_code": "BE",
+        "email": "wouter.adem@lichtvis.be",
+        "phone_number": ""
+      },
+      "to_address": {
+        "name": "Lichtvis-Wouter",
+        "company_name": "TESTTESTTEST",
+        "address_line_1": "Kolenkaai",
+        "house_number": "68",
+        "address_line_2": "",
+        "postal_code": "8000",
+        "city": "Brugge",
+        "po_box": "",
+        "state_province_code": null,
+        "country_code": "BE",
+        "email": "wouter.adem@lichtvis.be",
+        "phone_number": ""
+      },
+      "to_service_point": null,
+      "customs_information": null,
+      "parcels": [
+        {
+          "parcel_items": [],
+          "dimensions": {
+            "width": "15.00",
+            "length": "5.00",
+            "height": "20.00",
+            "unit": "cm"
+          },
+          "weight": {
+            "value": "1.210",
+            "unit": "kg"
+          },
+          "created_at": "2025-11-17T09:31:04.144267Z",
+          "updated_at": "2025-11-17T09:31:04.653520Z",
+          "announced_at": "2025-11-17T09:31:04.554124Z",
+          "id": 573274375,
+          "status": {
+            "code": "READY_TO_SEND",
+            "message": "Ready to send"
+          },
+          "documents": [
+            {
+              "type": "label",
+              "size": "a6",
+              "link": "https://panel.sendcloud.sc/api/v3/parcels/573274375/documents/label"
+            }
+          ],
+          "tracking_number": "67649080604",
+          "tracking_url": "https://tracking.eu-central-1-0.sendcloud.sc/forward?carrier=gls_eu&code=67649080604&destination=BE&lang=nl-nl&source=BE&type=parcel&verification=8000&servicepoint_verification=&shipping_product_code=gls_eu%3Abusinessparcel&created_at=2025-11-17",
+          "sscc": null,
+          "additional_carrier_data": {
+            "awb_tracking_number": null,
+            "box_number": null
+          },
+          "label_notes": [
+            "I live at the red door",
+            "The doorbell isn’t working"
+          ],
+          "additional_insured_price": {
+            "value": "0.00",
+            "currency": "EUR"
+          }
+        }
+      ],
+      "order_number": "1234567890",
+      "total_order_price": {
+        "value": "100.00",
+        "currency": "EUR"
+      },
+      "reference": null,
+      "external_reference_id": null,
+      "brand_id": null,
+      "delivery_dates": {
+        "handover_at": null,
+        "deliver_at": null
+      },
+      "errors": []
+    }
+  ]
+}
