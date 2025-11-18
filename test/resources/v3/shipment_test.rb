@@ -17,7 +17,7 @@ class ShipmentResourceTest < Minitest::Test
     shipments = client.shipment.shipments
 
     assert_equal Sendcloud::Collection, shipments.class
-    assert_equal Sendcloud::Shipment, shipments.data.first.class
+    assert_equal Sendcloud::V3::Shipment, shipments.data.first.class
   end
 
   def test_announce
@@ -142,6 +142,9 @@ class ShipmentResourceTest < Minitest::Test
     )
 
     client = Sendcloud::Client.new(api_key: "key", api_secret: "secret", adapter: :test, stubs: stub)
+
+    puts client
+
     res = client.shipment.announce(**payload)
 
     label_notes = res.dig("data", "parcels", 0, "label_notes")
