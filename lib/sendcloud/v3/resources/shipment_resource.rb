@@ -3,11 +3,9 @@ module Sendcloud
     class ShipmentResource < Resource
 
       def announce(payload:)
-        response = Shipment.new post_request("shipments/announce", body: payload).body
-
-        debugger
-
-        Collection.from_response(response, key: "data", type: Shipment)
+        response = Shipment.new post_request("shipments/announce", body: payload)
+        response.body.data
+        #error_or_data(response)
       end
 
       def cancel(shipment_id:)
@@ -16,7 +14,7 @@ module Sendcloud
 
       def shipments
         response = get_request("shipments")
-        Collection.from_response(response, key: "data", type: Shipment)
+        Collection.from_response(response, key: "data", type: ShipmentResource)
       end
     end
   end

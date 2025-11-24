@@ -1,6 +1,6 @@
 module Sendcloud
   module V3
-    class Contract < Object
+    class Label < Object
     end
   end
 end
