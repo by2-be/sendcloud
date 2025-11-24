@@ -40,9 +40,11 @@ module Sendcloud
     end
 
     def connection(version = :v2)
+      @uri == "https://panel.sendcloud.sc" ? "#{@uri}/api/v3" : @uri
+
       case version.to_sym
       when :v2 then (@connection_v2 ||= build_connection("#{BASE_DOMAIN}/api/v2")) # V2 does not allow Mock server.
-      when :v3 then (@connection_v3 ||= build_connection("#{@uri}/api/v3"))
+      when :v3 then (@connection_v3 ||= build_connection("#{@uri}"))
       else
         raise ArgumentError, "Unsupported version: #{version.inspect}"
       end
@@ -52,10 +54,9 @@ module Sendcloud
 
     def build_connection(base_url)
       @connection ||= Faraday.new(base_url) do |conn|
-        conn.request :authorization, :AccessToken, api_key
+        conn.request :authorization, :basic, api_key, api_secret
         conn.request :json
         conn.response :json, content_type: "application/json"
-        conn.response :follow_redirects, clear_authorization_header: false
         conn.adapter adapter, @stubs
       end
     end

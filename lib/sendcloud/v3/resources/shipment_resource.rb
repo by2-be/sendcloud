@@ -2,8 +2,12 @@ module Sendcloud
   module V3
     class ShipmentResource < Resource
 
-      def announce(**attributes)
-        Shipment.new post_request("announce", body: attributes).body
+      def announce(payload:)
+        response = Shipment.new post_request("shipments/announce", body: payload).body
+
+        debugger
+
+        Collection.from_response(response, key: "data", type: Shipment)
       end
 
       def cancel(shipment_id:)

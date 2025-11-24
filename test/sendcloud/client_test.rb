@@ -9,8 +9,8 @@ class ClientTest < Minitest::Test
 
   def test_mock_server
     client = Sendcloud::Client.new api_key: "key", api_secret: "secret",
-                                   uri: "https://stoplight.io/mocks/sendcloud/sendcloud-public-api/475741403"
-    assert_equal "https://stoplight.io/mocks/sendcloud/sendcloud-public-api/475741403", client.uri
+                                   uri: "uri"
+    assert_equal "uri", client.uri
   end
 
   def test_service_points
