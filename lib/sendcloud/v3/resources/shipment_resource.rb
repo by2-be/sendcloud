@@ -4,7 +4,7 @@ module Sendcloud
 
       def announce(payload:)
         response = Shipment.new post_request("shipments/announce", body: payload)
-        response.body.data
+        response.body
         #error_or_data(response)
       end
 
