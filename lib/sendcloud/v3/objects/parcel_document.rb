@@ -1,6 +1,6 @@
 module Sendcloud
   module V3
-    class Label < Object
+    class ParcelDocument < Object
     end
   end
 end

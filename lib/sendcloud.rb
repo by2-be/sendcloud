@@ -28,9 +28,9 @@ module Sendcloud
   # V3
   module V3
     autoload :ShipmentResource, "sendcloud/v3/resources/shipment_resource"
-    autoload :LabelResource, "sendcloud/v3/resources/label_resource"
+    autoload :ParcelDocumentResource, "sendcloud/v3/resources/parcel_document_resource"
 
     autoload :Shipment, "sendcloud/v3/objects/shipment"
-    autoload :Label, "sendcloud/v3/objects/label"
+    autoload :ParcelDocument, "sendcloud/v3/objects/parcel_document"
   end
 end
