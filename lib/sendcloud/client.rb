@@ -40,11 +40,17 @@ module Sendcloud
     end
 
     def connection(version = :v2)
-      @uri == "https://panel.sendcloud.sc" ? "#{@uri}/api/v3" : @uri
-
       case version.to_sym
       when :v2 then (@connection_v2 ||= build_connection("#{BASE_DOMAIN}/api/v2")) # V2 does not allow Mock server.
-      when :v3 then (@connection_v3 ||= build_connection("#{@uri}"))
+      when :v3
+        base_uri =
+          if @uri == BASE_DOMAIN
+            "#{BASE_DOMAIN}/api/v3"
+          else
+            @uri
+          end
+
+        @connection_v3 ||= build_connection(base_uri)
       else
         raise ArgumentError, "Unsupported version: #{version.inspect}"
       end
