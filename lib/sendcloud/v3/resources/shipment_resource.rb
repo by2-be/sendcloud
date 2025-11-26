@@ -1,20 +1,16 @@
 module Sendcloud
   module V3
     class ShipmentResource < Resource
-
       def announce(payload:)
-        response = post_request("shipments/announce", body: payload)
-        response.body
+        post_request("shipments/announce", body: payload)
       end
 
-      def cancel(shipment_id:)
-        response = post_request("shipments/#{shipment_id}/cancel", body: {})
-        response.body
+      def cancel(shipment_id)
+        post_request("shipments/#{shipment_id}/cancel", body: {})
       end
 
-      def shipments
-        response = get_request("shipments")
-        Collection.from_response(response, key: "data", type: ShipmentResource)
+      def retrieve_shipment(shipment_id)
+        get_request("shipments/#{shipment_id}")
       end
     end
   end

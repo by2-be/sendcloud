@@ -34,22 +34,14 @@ module Sendcloud
     end
 
     def handle_response(response)
-      case response.status
-      when 400
-        raise Error, "Your request was malformed. #{response.body["error"]}"
-      when 401
-        raise Error, "You did not supply valid authentication credentials. #{response.body["error"]}"
-      when 403
-        raise Error, "You are not allowed to perform that action. #{response.body["error"]}"
-      when 404
-        raise Error, "No results were found for your request. #{response.body["error"]}"
-      when 429
-        raise Error, "Your request exceeded the API rate limit. #{response.body["error"]}"
-      when 500
-        raise Error, "We were unable to perform the request due to server-side problems. #{response.body["error"]}"
-      end
+      return response.fetch("data") if (200..202).include?(response.status)
 
-      response
+      error_detail = response
+         .fetch("errors")
+         .map { |error| error["detail"] }
+         .join(", ")
+
+      raise Error, error_detail
     end
   end
 end

@@ -22,14 +22,6 @@ module Sendcloud
       ParcelStatusResource.new(self)
     end
 
-    def shipping_method
-      ShippingMethodResource.new(self)
-    end
-
-    def shipment
-      V3::ShipmentResource.new(self, version: :v3)
-    end
-
     def label
       LabelResource.new(self)
     end
@@ -41,7 +33,7 @@ module Sendcloud
 
     def connection(version = :v2)
       case version.to_sym
-      when :v2 then (@connection_v2 ||= build_connection("#{BASE_DOMAIN}/api/v2")) # V2 does not allow Mock server.
+      when :v2 then (@connection_v2 ||= build_connection("#{BASE_DOMAIN}/api/v2"))
       when :v3
         base_uri =
           if @uri == BASE_DOMAIN
