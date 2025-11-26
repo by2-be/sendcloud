@@ -29,6 +29,7 @@ module Sendcloud
   module V3
     autoload :ShipmentResource, "sendcloud/v3/resources/shipment_resource"
     autoload :ParcelDocumentResource, "sendcloud/v3/resources/parcel_document_resource"
+    autoload :Resource, "sendcloud/v3/resource"
 
     autoload :Shipment, "sendcloud/v3/objects/shipment"
     autoload :ParcelDocument, "sendcloud/v3/objects/parcel_document"
