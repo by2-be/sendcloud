@@ -34,7 +34,10 @@ module Sendcloud
       end
 
       def handle_response(response)
-        return response.body.fetch("data") if (200..202).include?(response.status)
+        if (200..202).include?(response.status)
+          return response.body if response.headers["content-type"] == "application/pdf"
+          return response.body.fetch("data")
+        end
 
         error_detail = response
          .body

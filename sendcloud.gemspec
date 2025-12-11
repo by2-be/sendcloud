@@ -5,8 +5,7 @@ require_relative "lib/sendcloud/version"
 Gem::Specification.new do |spec|
   spec.name = "sendcloud-ruby"
   spec.version = Sendcloud::VERSION
-  spec.authors = ["Peter Berkenbosch, Wouter Adem"]
-  spec.email = ["wouter.adem@gmail.com"]
+  spec.authors = ["Peter Berkenbosch"]
 
   spec.summary = "Ruby client for the Sendcloud API"
   spec.description = spec.summary
