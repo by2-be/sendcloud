@@ -34,12 +34,11 @@ module Sendcloud
     end
 
     def handle_response(response)
-      return response.fetch("data") if (200..202).include?(response.status)
+      return response.body.fetch("data") if (200..202).include?(response.status)
 
-      error_detail = response
-         .fetch("errors")
-         .map { |error| error["detail"] }
-         .join(", ")
+      error_detail = response.body.fetch("errors")
+        .map { |error| error["detail"] }
+        .join(", ")
 
       raise Error, error_detail
     end

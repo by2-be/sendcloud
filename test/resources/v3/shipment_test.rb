@@ -40,7 +40,7 @@ class ShipmentResourceTest < Minitest::Test
       stubs: stub
     )
 
-    res = client.shipment.cancel(shipment_id: shipment_id)
+    res = Sendcloud::V3::ShipmentResource.new(client).cancel(shipment_id)
 
     canceled_response = res.dig("data")
 
