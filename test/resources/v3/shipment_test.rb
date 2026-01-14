@@ -61,7 +61,7 @@ class ShipmentResourceTest < Minitest::Test
       stubs: stub
     )
 
-    res = Sendcloud::V3::ShipmentResource.new(client).cancel(shipment_id)
+    res = client.shipment.cancel(shipment_id: shipment_id)
 
     assert_equal 'cancelled', res['status']
     assert_equal 'Shipment has been cancelled', res['message']
