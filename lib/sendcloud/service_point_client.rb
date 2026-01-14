@@ -1,6 +1,6 @@
 module Sendcloud
   class ServicePointClient
-    BASE_DOMAIN = "https://servicepoints.sendcloud.sc"
+    BASE_URL = "https://servicepoints.sendcloud.sc/api/v2"
 
     attr_reader :api_key, :adapter
 
@@ -16,23 +16,12 @@ module Sendcloud
       ServicePointResource.new(self)
     end
 
-    def connection(version = :v2)
-      case version.to_sym
-      when :v2 then (@connection_v2 ||= build_connection("#{BASE_DOMAIN}/api/v2"))
-      when :v3 then (@connection_v3 ||= build_connection("#{BASE_DOMAIN}/api/v3"))
-      else
-        raise ArgumentError, "Unsupported version: #{version.inspect}"
-      end
-    end
-
-    private
-
-    def build_connection(base_url)
-      @connection ||= Faraday.new(base_url) do |conn|
+    def connection
+      @connection ||= Faraday.new(BASE_URL) do |conn|
         conn.request :authorization, :AccessToken, api_key
+        conn.use FaradayMiddleware::FollowRedirects, {clear_authorization_header: false}
         conn.request :json
         conn.response :json, content_type: "application/json"
-        conn.response :follow_redirects, clear_authorization_header: false
         conn.adapter adapter, @stubs
       end
     end
