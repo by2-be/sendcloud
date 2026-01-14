@@ -1,6 +1,6 @@
 module Sendcloud
   class Client
-    BASE_DOMAIN = "https://panel.sendcloud.sc"
+    BASE_DOMAIN = 'https://panel.sendcloud.sc'
 
     attr_reader :api_key, :api_secret, :uri, :adapter
 
@@ -31,6 +31,18 @@ module Sendcloud
       service_point_client.service_point
     end
 
+    def shipping_method
+      ShippingMethodResource.new(self)
+    end
+
+    def shipment
+      V3::ShipmentResource.new(self)
+    end
+
+    def parcel_document
+      V3::ParcelDocumentResource.new(self)
+    end
+
     def connection(version = :v2)
       @connections ||= {}
       @connections[version] ||= begin
@@ -57,7 +69,7 @@ module Sendcloud
       Faraday.new(base_url) do |conn|
         conn.request :authorization, :basic, api_key, api_secret
         conn.request :json
-        conn.response :json, content_type: "application/json"
+        conn.response :json, content_type: 'application/json'
         conn.adapter adapter, @stubs
       end
     end
