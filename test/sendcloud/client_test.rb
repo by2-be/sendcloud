@@ -9,7 +9,7 @@ class ClientTest < Minitest::Test
 
   def test_mock_server
     client = Sendcloud::Client.new api_key: "key", api_secret: "secret",
-                                   uri: "uri"
+      uri: "uri"
     assert_equal "uri", client.uri
   end
 

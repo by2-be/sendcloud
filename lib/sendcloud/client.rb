@@ -1,6 +1,6 @@
 module Sendcloud
   class Client
-    BASE_DOMAIN = 'https://panel.sendcloud.sc'
+    BASE_DOMAIN = "https://panel.sendcloud.sc"
 
     attr_reader :api_key, :api_secret, :uri, :adapter
 
@@ -45,22 +45,20 @@ module Sendcloud
 
     def connection(version = :v2)
       @connections ||= {}
-      @connections[version] ||= begin
-          case version.to_sym
-          when :v2 then build_connection("#{BASE_DOMAIN}/api/v2")
-          when :v3
-            base_uri = if @uri == BASE_DOMAIN
-                "#{BASE_DOMAIN}/api/v3"
-              else
-                # do not append mock server
-                @uri
-              end
-
-            build_connection(base_uri)
-          else
-            raise ArgumentError, "Unsupported version: #{version.inspect}"
-          end
+      @connections[version] ||= case version.to_sym
+      when :v2 then build_connection("#{BASE_DOMAIN}/api/v2")
+      when :v3
+        base_uri = if @uri == BASE_DOMAIN
+          "#{BASE_DOMAIN}/api/v3"
+        else
+          # do not append mock server
+          @uri
         end
+
+        build_connection(base_uri)
+      else
+        raise ArgumentError, "Unsupported version: #{version.inspect}"
+      end
     end
 
     private
@@ -69,7 +67,7 @@ module Sendcloud
       Faraday.new(base_url) do |conn|
         conn.request :authorization, :basic, api_key, api_secret
         conn.request :json
-        conn.response :json, content_type: 'application/json'
+        conn.response :json, content_type: "application/json"
         conn.adapter adapter, @stubs
       end
     end

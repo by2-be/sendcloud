@@ -34,16 +34,16 @@ module Sendcloud
       end
 
       def handle_response(response)
-        if (200..202).include?(response.status)
+        if (200..202).cover?(response.status)
           return response.body if response.headers["content-type"] == "application/pdf"
           return response.body.fetch("data")
         end
 
         error_detail = response
-         .body
-         .fetch("errors")
-         .map { |error| error["detail"] }
-         .join(", ")
+          .body
+          .fetch("errors")
+          .map { |error| error["detail"] }
+          .join(", ")
 
         raise Error, error_detail
       end
