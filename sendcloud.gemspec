@@ -6,12 +6,13 @@ Gem::Specification.new do |spec|
   spec.name = "sendcloud-ruby"
   spec.version = Sendcloud::VERSION
   spec.authors = ["Peter Berkenbosch"]
+  spec.email = ["info@peterberkenbosch.nl"]
 
   spec.summary = "Ruby client for the Sendcloud API"
   spec.description = spec.summary
-  spec.homepage = "https://github.com/wouteradem/sendcloud"
+  spec.homepage = "https://github.com/peterberkenbosch/sendcloud"
   spec.license = "MIT"
-  spec.required_ruby_version = ">= 2.4.0"
+  spec.required_ruby_version = ">= 3.4.0"
 
   spec.metadata["homepage_uri"] = spec.homepage
   spec.metadata["source_code_uri"] = "https://github.com/peterberkenbosch/sendcloud"
