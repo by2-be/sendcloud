@@ -7,6 +7,7 @@ module Sendcloud
   autoload :Client, "sendcloud/client"
   autoload :ServicePointClient, "sendcloud/service_point_client"
   autoload :Error, "sendcloud/error"
+  autoload :ConflictError, "sendcloud/error"
   autoload :Object, "sendcloud/object"
   autoload :Resource, "sendcloud/resource"
   autoload :Collection, "sendcloud/collection"

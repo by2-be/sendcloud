@@ -34,18 +34,27 @@ module Sendcloud
       end
 
       def handle_response(response)
-        if (200..202).cover?(response.status)
-          return response.body if response.headers["content-type"] == "application/pdf"
-          return response.body.fetch("data")
+        body = response.body
+
+        case response.status
+        when 200..202
+          return body if response.headers["content-type"] == "application/pdf"
+          body.fetch("data")
+        when 409
+          error_detail = "Conflict error #{response.status}: #{body.inspect}"
+          raise ConflictError.new(error_detail, response:)
+        else
+          error_detail = if body.key?('errors')
+                           body
+                             .fetch('errors')
+                             .map { |error| error['detail'] }
+                             .join(', ')
+                         else
+                           "Unknown error #{response.status}: #{body.inspect}"
+                         end
+
+          raise Error.new(error_detail, response:)
         end
-
-        error_detail = response
-          .body
-          .fetch("errors")
-          .map { |error| error["detail"] }
-          .join(", ")
-
-        raise Error, error_detail
       end
     end
   end
