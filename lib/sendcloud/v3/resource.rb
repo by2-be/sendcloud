@@ -44,14 +44,14 @@ module Sendcloud
           error_detail = "Conflict error #{response.status}: #{body.inspect}"
           raise ConflictError.new(error_detail, response:)
         else
-          error_detail = if body.key?('errors')
-                           body
-                             .fetch('errors')
-                             .map { |error| error['detail'] }
-                             .join(', ')
-                         else
-                           "Unknown error #{response.status}: #{body.inspect}"
-                         end
+          error_detail = if body.key?("errors")
+            body
+              .fetch("errors")
+              .map { |error| error["detail"] }
+              .join(", ")
+          else
+            "Unknown error #{response.status}: #{body.inspect}"
+          end
 
           raise Error.new(error_detail, response:)
         end
