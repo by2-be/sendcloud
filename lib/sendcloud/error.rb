@@ -11,4 +11,3 @@ module Sendcloud
   class ConflictError < Error
   end
 end
-
